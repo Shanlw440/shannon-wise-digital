@@ -1,6 +1,7 @@
-import { Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
 
 const EMAIL = 'shannonwisedigital@gmail.com';
+const WHATSAPP_NUMBER = '447704600083';
 
 export default function Contact() {
   const openEmail = () => {
@@ -10,6 +11,14 @@ export default function Contact() {
     );
 
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+  };
+
+  const openWhatsApp = () => {
+    const message = encodeURIComponent(
+      'Hi Shannon, I’m interested in a website and would like to discuss a project.'
+    );
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   };
 
   return (
@@ -36,6 +45,13 @@ export default function Contact() {
               title="Email"
               text={EMAIL}
               onClick={openEmail}
+            />
+
+            <ContactCard
+              icon={MessageCircle}
+              title="WhatsApp"
+              text="07704 600083"
+              onClick={openWhatsApp}
             />
 
             <ContactCard
@@ -87,14 +103,25 @@ export default function Contact() {
               />
             </div>
 
-            <button
-              type="button"
-              onClick={openEmail}
-              className="mt-5 inline-flex h-14 w-full items-center justify-center rounded-full bg-[#557462] px-8 text-base font-semibold text-white shadow-lg shadow-[#557462]/20 transition hover:bg-[#496758]"
-            >
-              <Send className="mr-2 h-4 w-4" />
-              Send Email
-            </button>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <button
+                type="button"
+                onClick={openEmail}
+                className="inline-flex h-14 w-full items-center justify-center rounded-full bg-[#557462] px-8 text-base font-semibold text-white shadow-lg shadow-[#557462]/20 transition hover:bg-[#496758]"
+              >
+                <Send className="mr-2 h-4 w-4" />
+                Email Me
+              </button>
+
+              <button
+                type="button"
+                onClick={openWhatsApp}
+                className="inline-flex h-14 w-full items-center justify-center rounded-full border border-[#557462]/30 bg-white/70 px-8 text-base font-semibold text-[#557462] shadow-sm transition hover:bg-white"
+              >
+                <MessageCircle className="mr-2 h-4 w-4" />
+                WhatsApp
+              </button>
+            </div>
           </form>
         </div>
       </div>
