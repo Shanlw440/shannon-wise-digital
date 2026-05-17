@@ -14,7 +14,7 @@ const steps = [
     number: '02',
     title: 'Design',
     description:
-      'I create mockups and concepts for your approval — refining until every detail feels right.',
+      'I create mockups and concepts for your approval, refining until every detail feels right.',
   },
   {
     icon: Code2,
